@@ -10,7 +10,7 @@ plugins {
     id "org.owasp.dependencycheck" version "7.4.4"
 }
 
-group = 'com.fortycoderplus.template'
+group = 'com.fortycoderplus.sample'
 version = '1.0.0'
 
 apply plugin: 'com.palantir.baseline-format'
@@ -27,6 +27,8 @@ dependencies {
     // mapstruct
     implementation 'org.mapstruct:mapstruct:1.5.3.Final'
     annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.3.Final'
+
+    implementation 'org.apache.calcite:calcite-core:1.32.0'
 
     // test
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.0'
@@ -52,16 +54,16 @@ test {
 publishing {
     publications {
         mavenJava(MavenPublication) {
-            groupId = 'com.fortycoderplus.template'
+            groupId = 'com.fortycoderplus.sample'
             artifactId = project.name
             version = project.version
 
             from components.java
 
             pom {
-                name = "Gradle Single Module Template"
-                description = 'Gradle Single Module Template'
-                url = 'https://github.com/40coderplus/gradle-single-module-template'
+                name = "calcite-sample"
+                description = 'calcite-sample'
+                url = 'https://github.com/Codingendless/calcite-sample'
                 developers {
                     developer {
                         id = 'Codingendless'
@@ -70,8 +72,8 @@ publishing {
                     }
                 }
                 scm {
-                    connection = 'scm:git:git@github.com:40coderplus/gradle-single-module-template.git'
-                    url = 'https://github.com/40coderplus/gradle-single-module-template'
+                    connection = 'scm:git:git@github.com:codingendless/calcite-sample.git'
+                    url = 'https://github.com/Codingendless/calcite-sample'
                 }
             }
         }
@@ -94,8 +96,8 @@ sonarqube {
     properties {
         property 'sonar.dependencyCheck.jsonReportPath', 'build/reports/dependency-check-report.json'
         property 'sonar.dependencyCheck.htmlReportPath', 'build/reports/dependency-check-report.html'
-        property 'sonar.projectName', 'gradle-single-module-template'
-        property 'sonar.projectKey', 'gradle-single-module-template'
+        property 'sonar.projectName', 'calcite-sample'
+        property 'sonar.projectKey', 'calcite-sample'
     }
 }
 
